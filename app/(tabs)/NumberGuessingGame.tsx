@@ -23,5 +23,14 @@ export default function NumberGuessingGame() {
 
   function handleMakeGuess() {
     const guess = parseInt(guessText, 10);
+
+    if (Number.isNaN(guess)) {
+      setMessage("Please enter a number 1-100");
+      return;
+    }
+    if (guess < 1 || guess > 100) {
+      setMessage("Your guess must be between 1-100");
+      return;
+    }
   }
 }
