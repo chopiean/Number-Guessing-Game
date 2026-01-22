@@ -54,4 +54,23 @@ export default function NumberGuessingGame() {
 
     setGuessText("");
   }
+
+  return (
+    <View style={styles.container}>
+      <Text style={styles.title}>{message}</Text>
+
+      <TextInput
+        style={styles.input}
+        value={guessText}
+        onChangeText={setGuessText}
+        keyboardType="number-pad"
+        placeholder="Enter guess"
+        maxLength={3}
+      />
+
+      <TouchableOpacity style={styles.button} onPress={handleMakeGuess}>
+        <Text style={styles.buttonText}>MAKE GUESS</Text>
+      </TouchableOpacity>
+    </View>
+  );
 }
