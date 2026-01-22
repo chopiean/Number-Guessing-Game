@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Alert } from "react-native";
+import { Alert, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
 
 function getRandom1to100() {
   return Math.floor(Math.random() * 100) + 1;
@@ -13,7 +13,7 @@ export default function NumberGuessingGame() {
 
   useEffect(() => {
     setSecret(getRandom1to100);
-  });
+  }, []);
 
   function resetGame() {
     setSecret(getRandom1to100);
@@ -74,3 +74,40 @@ export default function NumberGuessingGame() {
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+    padding: 24,
+    backgroundColor: "#fff",
+  },
+  title: {
+    fontSize: 20,
+    marginBottom: 16,
+    fontWeight: "600",
+  },
+  input: {
+    width: 140,
+    height: 40,
+    borderWidth: 1,
+    borderColor: "#999",
+    paddingHorizontal: 10,
+    fontSize: 18,
+    marginBottom: 16,
+    textAlign: "center",
+  },
+  button: {
+    backgroundColor: "#1e88e5",
+    paddingVertical: 12,
+    paddingHorizontal: 18,
+    borderRadius: 4,
+    elevation: 2,
+  },
+  buttonText: {
+    color: "white",
+    fontWeight: "700",
+    letterSpacing: 0.5,
+  },
+});
